@@ -104,7 +104,11 @@ public class ServiceUtil {
 		//System.out.println("Before sort"+videoLst);
 		Collections.sort(videoLst, new Comparator(){
 			public int compare(Object o1, Object o2){
-				return (((Media) o2).getSimilarityValue()).compareTo(((Media) o1).getSimilarityValue());
+				if(((Media) o2).getSimilarityValue() != null && ((Media) o1).getSimilarityValue() != null){
+					return (((Media) o2).getSimilarityValue()).compareTo(((Media) o1).getSimilarityValue());
+				} else {
+					return -1;
+				}
 			}
 		});
 	}

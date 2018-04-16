@@ -21,6 +21,11 @@ import edu.ou.cse.swlp.util.ServiceUtil;
 
 public class RelatedResourcesService {
 
+	/**
+	 * @param tags
+	 * @param limit
+	 * @return
+	 */
 	public List<Media> getRelatedResources(String tags, int limit){
 		List<Media> mediaLst = new ArrayList<Media>();
 		

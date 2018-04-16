@@ -1,7 +1,6 @@
 package edu.ou.cse.swlp.daoimpl;
 
 import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
 
 import edu.ou.cse.swlp.beans.Media;
 import edu.ou.cse.swlp.constants.DBConstants;
@@ -35,5 +34,9 @@ public class RelatedResourcesDAOImpl implements RelatedResourcesDAO{
 		
 		DBUtil.closeConnection(); 
 		return media;
+	}
+	
+	public void insertResources(){
+		
 	}
 }

@@ -62,16 +62,9 @@ public class DBPediaLookupServiceClient {
 				}
 			}
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return desc;
 	}
-	
-	public static void main(String[] args) {
-		//lookUpDBPediaConcept();
-	}
-	
-
 }

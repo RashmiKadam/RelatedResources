@@ -3,8 +3,6 @@
  */
 package edu.ou.cse.swlp.externalservices;
 
-import java.io.UnsupportedEncodingException;
-
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -18,7 +16,7 @@ import edu.ou.cse.swlp.util.ServiceUtil;
 public class SemanticSimilarityServiceClient {
 	private String apiURL = "https://api.dandelion.eu/datatxt/";
 	private String serviceName = "sim/v1/?";
-	private String apiToken = "0b905b07c43f445badd9e0b5f542d1aa";
+	private String apiToken = "e4f853c0480b497d95b1290887f4ac14";//"0b905b07c43f445badd9e0b5f542d1aa";
 
 	/**
 	 * @param dbPediConcept
@@ -34,8 +32,10 @@ public class SemanticSimilarityServiceClient {
 			params = params.concat(apiToken);
 			response = ServiceUtil.invokeService(apiURL, serviceName, params);
 			//System.out.println(response);
-			responseObj =  (JSONObject) jsonParser.parse(response);
-			similarityValue = (Double) responseObj.get("similarity");
+			if(response != null){
+				responseObj =  (JSONObject) jsonParser.parse(response);
+				similarityValue = (Double) responseObj.get("similarity");
+			}
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -6,8 +6,6 @@ package edu.ou.cse.swlp.externalservices;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -70,6 +68,11 @@ public class YouTubeDataServiceClient {
 		return mediaList;
 	}
 	
+	/**
+	 * @param keyword
+	 * @param dbPediaConcept
+	 * @return
+	 */
 	public Collection getRelatedVideos(String keyword, String dbPediaConcept){
 		ArrayList<Media> videoLst = new ArrayList<>();
 		try {
@@ -88,6 +91,11 @@ public class YouTubeDataServiceClient {
 		return videoLst;
 	}
 	
+	/**
+	 * @param videoLst
+	 * @param dbPediaConcept
+	 * @return
+	 */
 	private ArrayList<Media> updateVideoSimilarityRank(ArrayList<Media> videoLst, String dbPediaConcept){
 		String text1;
 		String params;

@@ -24,13 +24,12 @@ public class DBUtil {
 	public static DB getConnection(){
 		DB dbObject = null;
 		try {
-			client = new MongoClient(DBConstants.HOST_NAME, DBConstants.PORT);
+			client = new MongoClient(DBConstants.MONGODB_URI);
 			
 			if(client != null){
 				dbObject = client.getDB("medialibrary");
 			}	
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return dbObject;

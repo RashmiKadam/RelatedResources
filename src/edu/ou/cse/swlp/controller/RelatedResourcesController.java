@@ -6,7 +6,6 @@ import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
@@ -15,26 +14,47 @@ import edu.ou.cse.swlp.beans.Media;
 import edu.ou.cse.swlp.services.RelatedResourcesService;
 /**
  * @author Rashmi Pethe
- *
+ * This class acts as a Controller for Related Resources.
  */
 
 @Path("/relatedresources")
 public class RelatedResourcesController {
 	
-	/*@GET
-	@Path("{tags}/{limit}/{key}")
+	
+	/**
+	 * This method is invoked on the root of the application. If no key is provided,
+	 * it will return with Unauthorized status code.
+	 * @return String of JSON object
+	 */
+	@GET
+	@Path("/")
 	@Produces("application/json")
-	public List<Media> getRelatedResources(@PathParam("tags") String tags, @PathParam("limit") int limit, @PathParam("key") String key){
+	public String getRelatedResources(){
+		throw new WebApplicationException(Response.Status.UNAUTHORIZED);
+	}
+	
+	/**
+	 * This method gets the related resources for the tags.
+	 * @param tags
+	 * @param limit
+	 * @param key
+	 * @return
+	 */
+	/*@GET
+	@Path("/get")
+	@Produces("application/json")
+	public List<Media> getRelatedResources(@HeaderParam("tags") String tags, @HeaderParam("limit") int limit, @HeaderParam("key") String key){
 		RelatedResourcesService service = new RelatedResourcesService();
 		List<Media> mediaList = new ArrayList<Media>();
 		if(service.isValidRequest(key)){
 			mediaList = service.getRelatedResources(tags, limit);
 		}else {
-			throw new WebApplicationException(Response.Status.UNAUTHORIZED);
+			//throw new WebApplicationException(Response.Status.UNAUTHORIZED);
 		}
+		
+		//return convertToJson(mediaList);
 		return mediaList;
 	}*/
-	
 	@GET
 	@Path("/get")
 	@Produces("application/json")
@@ -44,8 +64,15 @@ public class RelatedResourcesController {
 		if(service.isValidRequest(key)){
 			mediaList = service.getRelatedResources(tags, limit);
 		}else {
-			throw new WebApplicationException(Response.Status.UNAUTHORIZED);
+			//throw new WebApplicationException(Response.Status.UNAUTHORIZED);
 		}
 		return mediaList;
 	}
+	
+	/*private String convertToJson(List<Media> mediaList){
+		Gson gsonBuilder = new GsonBuilder().create();
+		String jsonResponse = gsonBuilder.toJson(mediaList);
+		System.out.println(jsonResponse);
+		return jsonResponse;
+	}*/
 }

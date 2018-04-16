@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author Rashmi Pethe
- *
+ * This class is a simple POJO of media type.
  */
 @XmlRootElement
 public class Media {
